@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
@@ -5,26 +6,22 @@
 </head>
 <body>
 <!-- set up the scene -->
-<a-scene>
+<a-scene altspace='vertical-align: bottom;'>
 
     <!-- preload all our textures -->
     <a-assets>
-        <video id="moon" autoplay loop="true" src='resources/acidifying-oceans-2048.mp4'></video>
-		<img id='moon2' src='resources/moon.jpg'/>
+        <img id='moon' src='resources/moon.jpg'/>
         <img id='stars' src='resources/stars.png'/>
     </a-assets>
 
-	<!--            <a-entity material="shader: flat; src: #moon" geometry="primitive: sphere; radius:1.5 " position='0 1.8 0'>
-      </a-entity>
-	
-	<a-video src="#moon" width="16" height="9" position="0 0 -20"></a-video> 
-	
-	<a-videosphere src="#moon"></a-videosphere>     -->      
-    <!-- add the moon to the scene 
-    <a-entity geometry="primitive: sphere; thetaLength: 180; radius: 1000; segmentsWidth: 64; segmentsHeight: 20" scale="1 1 -1" material="src: #moon; shader: flat"></a-entity>-->
-	<a-sphere theta-length="180">
+    <!-- add the moon to the scene -->
+    <a-sphere position='0 1.5 0' material='src: #moon;'>
+        <!-- add an animation to make it rotate -->
+        <a-animation to='0 360 0' easing='linear' dur='20000' repeat='indefinite'/>
+    </a-sphere>
+
     <!-- add the backdrop of stars -->
-    <a-sky src='#moon2' radius='2500'></a-sky>
+    <a-sky src='#stars' radius='2500'></a-sky>
 
     <!-- add a view camera (2d only) -->
     <a-entity position='0 0 2'>
