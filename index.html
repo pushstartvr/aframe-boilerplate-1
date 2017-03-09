@@ -1,18 +1,36 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello, World! - A-Frame</title>
-    <meta name="description" content="Hello, World! - A-Frame">
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
-  </body>
-</html>
+<head>
+<script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+<script src="../../dist/altspace.js"></script>
+</head>
+<body>
+<!-- set up the scene -->
+<a-scene>
+
+    <!-- preload all our textures -->
+    <a-assets>
+        <video id="moon" autoplay loop="true" src='resources/acidifying-oceans-2048.mp4'></video>
+		<img id='moon2' src='resources/moon.jpg'/>
+        <img id='stars' src='resources/stars.png'/>
+    </a-assets>
+
+	<!--            <a-entity material="shader: flat; src: #moon" geometry="primitive: sphere; radius:1.5 " position='0 1.8 0'>
+      </a-entity>
+	
+	<a-video src="#moon" width="16" height="9" position="0 0 -20"></a-video> 
+	
+	<a-videosphere src="#moon"></a-videosphere>     -->      
+    <!-- add the moon to the scene 
+    <a-entity geometry="primitive: sphere; thetaLength: 180; radius: 1000; segmentsWidth: 64; segmentsHeight: 20" scale="1 1 -1" material="src: #moon; shader: flat"></a-entity>-->
+	<a-sphere theta-length="180">
+    <!-- add the backdrop of stars -->
+    <a-sky src='#moon2' radius='2500'></a-sky>
+
+    <!-- add a view camera (2d only) -->
+    <a-entity position='0 0 2'>
+        <a-camera></a-camera>
+    </a-entity>
+
+</a-scene>
+
+</body></html>
